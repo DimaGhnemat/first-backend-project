@@ -1,0 +1,42 @@
+const express = require("express");
+const app = express();
+
+const fortunes = [
+    "You will have a great day!",
+    "A surprise is on its way to you!",
+    "Good luck is waiting for you!",
+    "Success is closer than you think!",
+    "Happiness comes from within!"
+];
+
+const jokes = [
+    "Why don't skeletons fight each other? They don't have the guts!",
+    "Why did the math book look sad? Because it had too many problems.",
+    "Parallel lines have so much in common. It's a shame they'll never meet."
+];
+
+const facts = [
+    "Did you know? Honey never spoils!",
+    "Octopuses have three hearts.",
+    "The Eiffel Tower can be 15 cm taller during summer due to thermal expansion."
+];
+
+
+app.get('/fortune', (req, res) => {
+    const randomFortune = fortunes[Math.floor(Math.random() * 3)];
+    res.json({ fortune: randomFortune });
+});
+
+
+app.get('/joke', (req, res) => {
+    const randomJoke = jokes[Math.floor(Math.random() * 3)];
+    res.json({ joke: randomJoke });
+});
+
+
+app.get('/fact', (req, res) => {
+    const randomFact = facts[Math.floor(Math.random() * 3)];
+    res.json({ fact: randomFact });
+});
+
+
